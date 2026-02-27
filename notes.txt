@@ -1,0 +1,14 @@
+déposer devoir fin journée sur moodle
+python panda matplotlib
+collecte de donnée -> dataframe en objet donc
+puis groupement de données
+une fois structurées et documentées les données -> représentation
+ et analyse du taux d'erreur
+pour analyser
+
+-> optimiser
+
+
+antoine07.github.io/dataviz
+
+cloner et récupérer le starter-db avec le docker
