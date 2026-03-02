@@ -132,3 +132,30 @@ Comparer la **distribution** d’une métrique continue (`game_duration_s`) entr
   - `machine_id` (effet machine spécifique),
   - `arcade_zone`,
   - éventuellement le temps (`timestamp`) si certaines périodes changent le comportement.
+
+  ## Score de risque `risk_score`
+
+### But
+
+Mettre en place un **système de priorisation** :
+- combiner plusieurs signaux (erreurs, pauses, tilt),
+- normaliser les métriques comparables,
+- produire un classement “Top 5” actionnable.
+
+### Méthode utilisée
+1. Agrégation par `machine_id` :
+   - `games_count`
+   - `error_rate`
+   - `avg_pause_s`
+   - `avg_tilt_risk_pct`
+2. Filtrage recommandé : **machines avec au moins 30 parties**
+3. Normalisation min-max :
+   - `pause_norm` dans [0, 1]
+   - `tilt_risk_norm` dans [0, 1]
+4. Score :
+   - `risk_score = 0.5 * error_rate + 0.3 * pause_norm + 0.2 * tilt_risk_norm`
+
+   ### Résultat (exemple de top 5 dans le notebook)
+Le classement obtenu met en avant notamment :
+- **F10** (fort tilt moyen + error_rate élevé ~8.7%)
+- **F07**, **F20**, **F01**, **F04** (selon les poids et la normalisation)
