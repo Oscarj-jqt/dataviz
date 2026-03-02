@@ -105,3 +105,20 @@ Transformer un tableau KPI en **visualisation de comparaison** :
   - le **nombre de parties** (stabilité statistique),
   - les **périodes** (effet heure/jour),
   - et la concentration sur une ou deux machines.
+
+  ## Boxplot : performance (durée de jeu) par type de machine
+
+### Objectif
+Comparer la **distribution** d’une métrique continue (`game_duration_s`) entre catégories (`machine_type`) :
+- médiane (performance “typique”),
+- dispersion (variabilité),
+- outliers (cas anormaux / anomalies / comportements atypiques).
+
+### Ressources utilisées
+- `sns.boxplot`
+- une version **avec** outliers
+- une version **sans** outliers : `showfliers=False`
+
+### Résultats observés
+- Les distributions de durée de jeu semblent **assez similaires** entre types de machines.
+- Même sans outliers, on ne voit pas un type “nettement meilleur” en durée de jeu.
