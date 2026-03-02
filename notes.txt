@@ -12,3 +12,31 @@ pour analyser
 antoine07.github.io/dataviz
 
 cloner et récupérer le starter-db avec le docker
+
+Voici le plan :
+Questions à se poser avant chaque mise en place de DataViz
+
+1- Quelles sont les données : documentation de la donnée 
+2- Nettoyage des données -> préparation
+3- Visualisations descriptives (barplot, distribution, boxplot)
+4- Analyse opérationnelle par zone et par type
+5- Variabilité, outliers et lecture avancée des distributions
+6- Transition vers le chapitre corrélations
+
+
+Choisir le bon graphique
+Evolution temporelle -> lineplot
+Comparaison categories -> barplot / boxplot
+Distribution -> histplot / kdeplot
+Relation entre 2 variables -> scatterplot
+Correlation multi-variables -> heatmap
+un graphique = une question principale.
+
+
+Présentation rapide du barplot (général)
+Un barplot est un graphique en barres qui permet de comparer des valeurs entre différentes catégories.
+
+Chaque barre représente une catégorie (ex : une zone).
+La longueur de la barre correspond à une valeur (ex : un taux).
+Il sert à comparer visuellement des performances ou des indicateurs.
+C'est un outil simple, très lisible, idéal pour identifier des écarts.
