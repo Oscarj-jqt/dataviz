@@ -82,3 +82,26 @@ Passer du niveau “parties” à un niveau **pilotage** :
   - un usage plus intensif,
   - ou une maintenance moins fréquente.
 - La bonne suite logique est d’analyser **quelles machines** (machine_id) contribuent à l’erreur en C2.
+
+## Visualisation : barplot du taux d’erreur par zone
+
+### But 
+Transformer un tableau KPI en **visualisation de comparaison** :
+- faciliter la lecture (tri),
+- mettre en évidence une zone critique,
+
+
+### Ressources utilisées
+- `seaborn.barplot`
+- tri décroissant des zones
+- labels (`title`, `xlabel`, `ylabel`)
+
+### Résultat
+- Le barplot confirme visuellement que **C2** est la zone la plus critique (taux d’erreur le plus élevé).
+
+### Interprétation & action
+- Action recommandée : **drill-down machine** sur C2 (machines présentes, erreurs, codes d’erreur) puis plan de maintenance priorisé.
+- Attention méthodo : un taux d’erreur “un peu plus élevé” ne suffit pas toujours → il faut aussi regarder :
+  - le **nombre de parties** (stabilité statistique),
+  - les **périodes** (effet heure/jour),
+  - et la concentration sur une ou deux machines.
