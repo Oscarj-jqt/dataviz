@@ -159,3 +159,27 @@ Mettre en place un **système de priorisation** :
 Le classement obtenu met en avant notamment :
 - **F10** (fort tilt moyen + error_rate élevé ~8.7%)
 - **F07**, **F20**, **F01**, **F04** (selon les poids et la normalisation)
+
+### Interprétations & recommandations (concrètes)
+- **Priorité 1 : F10**
+  - vérifier capteurs / réglages liés au tilt,
+  - audit de maintenance (pannes, calibrage, logs d’erreurs).
+- **Surveillance : machines suivantes**
+  - mettre en place une alerte si `error_rate` dépasse un seuil,
+  - investiguer si la pause moyenne élevée reflète des blocages / latences / comportements joueurs ou un problème de machine.
+
+## Conclusion
+
+1. Une analyse dataviz commence par un **contrôle dataset** (structure, types, volume).
+2. Un **nettoyage minimal** évite de biaiser KPI et visualisations (ici ~55 lignes retirées).
+3. Les **KPI agrégés** (zone/machine) sont la base du pilotage.
+4. Un barplot bien trié rend un diagnostic **immédiat** (C2 zone la plus critique).
+5. Les boxplots servent à comparer des **distributions**, pas seulement des moyennes : ici, le `machine_type` n’explique pas fortement la durée.
+6. Un **score composite** (normalisé) permet de passer de “constats” à une **liste de priorités actionnables**.
+
+## Pistes d’amélioration (si on prolonge le TP)
+- Analyse par `game_mode` (durée, erreur, tilt).
+- Drill-down sur C2 : `machine_id` → quelles machines expliquent le taux d’erreur ?
+- Corrélations (pause / tilt / vitesse / température) avec `is_error`.
+- Analyse temporelle : erreurs par jour/heure (`timestamp`), détection de dérive.
+- Visualisation “dashboard” : top machines à risque + évolution temporelle.
