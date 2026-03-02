@@ -34,6 +34,17 @@ Avant toute dataviz, il faut **comprendre les données** :
 - Le dataset contient **5409 lignes** et **14 colonnes**
 - Nombre de joueurs uniques : **260**
 
-### Interprétations / enseignements
+### Interprétations
 - Le dataset est suffisamment grand pour des agrégations par zone / machine.
 Les paramètres du dataset permettront à analyser la qualité/risque du flipper
+
+## Nettoyage minimal
+
+### But
+
+Ici, l’objectif est de retirer les valeurs clairement invalides avec :
+
+- durées négatives ou nulles : filtrage `game_duration_s > 0`
+- risques tilt hors bornes (0–100) : filtrage `tilt_risk_pct` dans `[0, 100]`
+- pauses négatives : filtrage `pause_s >= 0`
+- doublons éventuels.
