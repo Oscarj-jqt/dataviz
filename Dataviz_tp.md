@@ -122,3 +122,13 @@ Comparer la **distribution** d’une métrique continue (`game_duration_s`) entr
 ### Résultats observés
 - Les distributions de durée de jeu semblent **assez similaires** entre types de machines.
 - Même sans outliers, on ne voit pas un type “nettement meilleur” en durée de jeu.
+
+### Interprétations
+- Le **type de machine** n’est pas un facteur discriminant majeur de la durée (dans ces données).
+- Pour expliquer la performance, il faut explorer d’autres variables :
+  - `game_mode` (ex. multiball vs speedrun),
+  - `pause_s`,
+  - `tilt_risk_pct`,
+  - `machine_id` (effet machine spécifique),
+  - `arcade_zone`,
+  - éventuellement le temps (`timestamp`) si certaines périodes changent le comportement.
